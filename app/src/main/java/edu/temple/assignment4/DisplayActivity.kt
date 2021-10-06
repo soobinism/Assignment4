@@ -14,9 +14,11 @@ class DisplayActivity : AppCompatActivity() {
 
         val textView = findViewById<TextView>(R.id.textView)
         val imageView = findViewById<ImageView>(R.id.imageView)
+        val descriptionTextView = findViewById<TextView>(R.id.descriptionTextView)
         val position = intent.getIntExtra(EXTRA_POSITION, 0)
 
         textView.text = imageList()[position].name
+        descriptionTextView.text = imageList()[position].description
         imageView.setImageResource(imageList()[position].resourceId)
     }
 }
