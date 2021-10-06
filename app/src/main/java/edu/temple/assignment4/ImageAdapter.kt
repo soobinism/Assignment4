@@ -9,29 +9,30 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import edu.temple.assignment4.ImageAdapter.ViewHolder
 
-class ImageAdapter (private val dataSet: List<Pokemon>, activity: Activity) : RecyclerView.Adapter<ViewHolder>()
+class ImageAdapter (private val dataSet: List<Pokemon>, private val myOnClick: (position: Int) -> Unit) : RecyclerView.Adapter<ViewHolder>()
 {
-    var imageView: ImageView = activity.findViewById(R.id.imageView) //check this
-    var textView: TextView = activity.findViewById(R.id.textView)   // Pokemon name
+    class ViewHolder(_imageView: View, private val myOnClick: (position: Int) -> Unit) : RecyclerView.ViewHolder(_imageView), View.OnClickListener {
 
+        val imageView: ImageView = _imageView.findViewById(R.id.imageViewLayout)
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView : ImageView = itemView.findViewById(R.id.imageViewLayout)
+        init {
+            imageView.setOnClickListener(this)
+        }
+        // Send position of click back to myOnClick.
+        override fun onClick(v: View?) {
+            val position = adapterPosition
+            myOnClick(position)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.image_layout, parent, false)
-        return ViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.imageView.setImageResource(dataSet[position].resourceId)
-
-        holder.imageView.setOnClickListener{
-            imageView.setImageResource(dataSet[position].resourceId)
-            textView.text = dataSet[position].name
-        }
+        return ViewHolder(view, myOnClick)
     }
 
     override fun getItemCount() = 12
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.imageView.setImageResource(dataSet[position].resourceId)
+    }
 }

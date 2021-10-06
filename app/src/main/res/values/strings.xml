@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Assignment4</string>
+    <string name="app_name">Pokemon Image Viewer App</string>
     <string name="details_of_image_selected">Details of image selected</string>
 </resources>
