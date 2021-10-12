@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Application de visualisation d images Pokemon</string>
+    <string name="details_of_image_selected">Details of image selected</string>
+    <string name="main_label">Cliquez sur une image ci-dessous pour voir: </string>
+</resources>
