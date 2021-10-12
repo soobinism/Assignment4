@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Pokemon Image Viewer App</string>
     <string name="details_of_image_selected">Details of image selected</string>
+    <string name="main_label">Click an image below to view: </string>
 </resources>
