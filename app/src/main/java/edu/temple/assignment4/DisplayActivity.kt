@@ -21,4 +21,6 @@ class DisplayActivity : AppCompatActivity() {
         descriptionTextView.text = imageList()[position].description
         imageView.setImageResource(imageList()[position].resourceId)
     }
+
+    //Test
 }
