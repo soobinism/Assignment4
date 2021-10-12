@@ -3,4 +3,19 @@
     <string name="app_name">Application de visualisation d images Pokemon</string>
     <string name="details_of_image_selected">Details of image selected</string>
     <string name="main_label">Cliquez sur une image ci-dessous pour voir: </string>
+
+    <string-array name="pokemon_array">
+        <item>Bulbizarre</item>
+        <item>Salamèche</item>
+        <item>Carapuce</item>
+        <item>Germignon</item>
+        <item>Héricendre</item>
+        <item>Kaiminus</item>
+        <item>Arcko</item>
+        <item>Poussifeu</item>
+        <item>Gobou</item>
+        <item>Tortipouss</item>
+        <item>Ouisticram</item>
+        <item>Tiplouf</item>
+    </string-array>
 </resources>

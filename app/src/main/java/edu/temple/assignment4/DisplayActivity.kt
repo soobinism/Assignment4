@@ -4,20 +4,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.GridLayoutManager
 
 class DisplayActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.display_activity)
 
-        val textView = findViewById<TextView>(R.id.textView)
+        val nameTextView = findViewById<TextView>(R.id.nameTextView)
         val imageView = findViewById<ImageView>(R.id.imageView)
         val descriptionTextView = findViewById<TextView>(R.id.descriptionTextView)
         val position = intent.getIntExtra(EXTRA_POSITION, 0)
+        val pokeArray = resources.getStringArray(R.array.pokemon_array)
 
-        textView.text = imageList()[position].name
+        nameTextView.text = pokeArray[position]
         descriptionTextView.text = imageList()[position].description
         imageView.setImageResource(imageList()[position].resourceId)
     }

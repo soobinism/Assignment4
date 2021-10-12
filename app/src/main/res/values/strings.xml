@@ -2,4 +2,19 @@
     <string name="app_name">Pokemon Image Viewer App</string>
     <string name="details_of_image_selected">Details of image selected</string>
     <string name="main_label">Click an image below to view: </string>
+
+    <string-array name="pokemon_array">
+        <item>Bulbasaur</item>
+        <item>Charmander</item>
+        <item>Squirtle</item>
+        <item>Chikorita</item>
+        <item>Cyndaquil</item>
+        <item>Totodile</item>
+        <item>Treecko</item>
+        <item>Torchic</item>
+        <item>Mudkip</item>
+        <item>Turtwig</item>
+        <item>Chimchar</item>
+        <item>Piplup</item>
+    </string-array>
 </resources>
