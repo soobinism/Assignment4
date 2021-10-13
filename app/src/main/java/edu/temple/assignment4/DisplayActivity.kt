@@ -12,12 +12,10 @@ class DisplayActivity : AppCompatActivity() {
 
         val nameTextView = findViewById<TextView>(R.id.nameTextView)
         val imageView = findViewById<ImageView>(R.id.imageView)
-        val descriptionTextView = findViewById<TextView>(R.id.descriptionTextView)
         val position = intent.getIntExtra(EXTRA_POSITION, 0)
         val pokeArray = resources.getStringArray(R.array.pokemon_array)
 
         nameTextView.text = pokeArray[position]
-        descriptionTextView.text = imageList()[position].description
         imageView.setImageResource(imageList()[position].resourceId)
     }
 

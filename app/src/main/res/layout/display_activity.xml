@@ -10,12 +10,12 @@
         android:id="@+id/nameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="19dp"
+        android:layout_marginBottom="188dp"
         android:contentDescription="Bulbasaur"
         android:text="Bulbasaur"
         android:textColor="#0C0808"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/descriptionTextView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -25,28 +25,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="38dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="190dp"
         android:layout_marginEnd="38dp"
-        android:layout_marginBottom="42dp"
+        android:layout_marginBottom="44dp"
         android:src="@drawable/bulbasaur"
         app:layout_constraintBottom_toTopOf="@+id/nameTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/descriptionTextView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="39dp"
-        android:text="TextView"
-        android:textColor="#1B1818"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
