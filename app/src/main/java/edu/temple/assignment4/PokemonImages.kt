@@ -30,7 +30,7 @@ fun imageList(): List<Pokemon>{
         ),
         Pokemon(
             id = 5,
-            name = "Cyndaquil",
+            name = "Cyndaquil",h
             description = "Cyndaquil protects itself by flaring up the flames on its back.",
             resourceId = R.drawable.cyndaquil
         ),
