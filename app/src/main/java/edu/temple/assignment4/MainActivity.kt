@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 
 const val EXTRA_POSITION = "edu.temple.assignment4.POSITION"
 
-class SelectionActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
