@@ -1,33 +1,57 @@
 package edu.temple.assignment4
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.*
 
-const val EXTRA_POSITION = "edu.temple.assignment4.POSITION"
+private const val ARG_PARAM1 = "param1"
 
-class SelectionFragment : AppCompatActivity() {
+class SelectionFragment : Fragment() {
+
+    private lateinit var recyclerView: RecyclerView
+    lateinit var images: ArrayList<PokemonImageObject>
+    lateinit var viewModel: PokemonImagesViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        images = arguments?.getParcelableArrayList<PokemonImageObject>(ARG_PARAM1) as ArrayList<PokemonImageObject>
+    }
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-
-        recyclerView.layoutManager = GridLayoutManager(this, 3)
-
-        val adapter = ImageAdapter(imageList()) {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val layout = inflater.inflate(R.layout.fragment_selection, container, false)
+        recyclerView = layout.findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = GridLayoutManager(layout.context, 3)
+        viewModel = ViewModelProvider(requireActivity()).get(PokemonImagesViewModel::class.java)
+        val adapter = ImageAdapter(imageList(resources)) {
                 position -> myOnClick(position)
         }
 
         recyclerView.adapter = adapter
+
+        return layout
+    }
+
+    // Factory method
+    companion object {
+        fun getInstance (imageList: ArrayList<PokemonImageObject>) : SelectionFragment {
+            val fragment = SelectionFragment()
+            val bundle = Bundle()
+
+            bundle.putParcelableArrayList(ARG_PARAM1, imageList)
+            fragment.arguments = bundle
+            return fragment
+        }
     }
 
     private fun myOnClick(position: Int) {
-        val intent = Intent(this, DisplayFragment::class.java).apply {
-            putExtra(EXTRA_POSITION, position)
-        }
-        startActivity(intent)
+        viewModel.setImageObject(images[position])
     }
 }

@@ -3,19 +3,30 @@ package edu.temple.assignment4
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import android.view.*
+import androidx.lifecycle.ViewModelProvider
 
-class DisplayFragment : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.display_activity)
+class DisplayFragment : Fragment() {
 
-        val nameTextView = findViewById<TextView>(R.id.nameTextView)
-        val imageView = findViewById<ImageView>(R.id.imageView)
-        val position = intent.getIntExtra(EXTRA_POSITION, 0)
-        val pokeArray = resources.getStringArray(R.array.pokemon_array)
-
-        nameTextView.text = pokeArray[position]
-        imageView.setImageResource(imageList()[position].resourceId)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_display, container, false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        ViewModelProvider(requireActivity())
+            .get(PokemonImagesViewModel::class.java)
+            .getImageObject()
+            .observe(requireActivity(), {updateImageDetails(it)})
+    }
+
+    private fun updateImageDetails(imageObject: PokemonImageObject) {
+        view?.findViewById<TextView>(R.id.displayTextView)?.text = imageObject.name.toString()
+        view?.findViewById<ImageView>(R.id.displayImageView)?.setImageResource(imageObject.resourceId)
+    }
+
 }

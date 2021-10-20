@@ -1,15 +1,13 @@
 package edu.temple.assignment4
 
-import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import edu.temple.assignment4.ImageAdapter.ViewHolder
 
-class ImageAdapter (private val dataSet: List<Pokemon>, private val myOnClick: (position: Int) -> Unit) : RecyclerView.Adapter<ViewHolder>()
+class ImageAdapter (private val dataSet: List<PokemonImageObject>, private val myOnClick: (position: Int) -> Unit) : RecyclerView.Adapter<ViewHolder>()
 {
     class ViewHolder(_imageView: View, private val myOnClick: (position: Int) -> Unit) : RecyclerView.ViewHolder(_imageView), View.OnClickListener {
 
